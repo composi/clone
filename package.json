@@ -1,7 +1,7 @@
 {
-  "name": "@composi/merge-objects",
+  "name": "@composi/clone",
   "description": "Function to merge objects together. Can take one to many object. If only one object is used, it is cloned. merge does deep cloning of objects.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "scripts": {
     "checkjs": "tsc --allowJs --checkJs --noEmit --moduleResolution node --target ES6 src/*.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/composi/merge-objects.git"
+    "url": "git+https://github.com/composi/clones.git"
   },
   "keywords": [
     "composi",
@@ -23,9 +23,9 @@
   "author": "Robert Biggs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/composi/merge-objects/issues"
+    "url": "https://github.com/composi/clones/issues"
   },
-  "homepage": "https://github.com/composi/merge-objects#readme",
+  "homepage": "https://github.com/composi/clones#readme",
   "babel": {
     "presets": [
       "@babel/preset-env"
