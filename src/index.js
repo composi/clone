@@ -1,6 +1,5 @@
 /**
  * Create deep clone of Object, Array, Set or Map.
- * If more than one is provided they will be merged and a deep clone of that will be returned.
  *
  * @param {Object.<string, any>[]} objects One or more objects to use for cloning.
  * @return {Object} Object
@@ -15,6 +14,10 @@ export function clone(...objects) {
     objects.unshift(new Set())
   } else if (objects[FIRST_ARGUMENT] instanceof Map) {
     objects.unshift(new Map())
+  } else if (objects[FIRST_ARGUMENT] instanceof WeakSet) {
+    objects.unshift(objects[FIRST_ARGUMENT])
+  } else if (objects[FIRST_ARGUMENT] instanceof WeakMap) {
+    objects.unshift(objects[FIRST_ARGUMENT])
   } else {
     objects.unshift({})
   }
@@ -47,6 +50,10 @@ export function clone(...objects) {
       return new Set([...object])
     } else if (object instanceof Map) {
       return new Map([...object])
+    } else if (object instanceof WeakSet) {
+      return object
+    } else if (object instanceof WeakMap) {
+      return object
     } else {
       return Object.assign(
         result,
@@ -60,12 +67,20 @@ export function clone(...objects) {
   if (Array.isArray(objects[FIRST_ARGUMENT])) {
     return objects.reduce((a, b) => Array.prototype.concat(a, createClone(b)))
   } else if (objects[FIRST_ARGUMENT] instanceof Set) {
-    // @ts-ignore
     return objects.reduce((a, b) => new Set([...a, ...createClone(b)]))
   } else if (objects[FIRST_ARGUMENT] instanceof Map) {
-    // @ts-ignore
     return objects.reduce((a, b) => new Map([...a, ...createClone(b)]))
+  } else if (objects[FIRST_ARGUMENT] instanceof WeakSet) {
+    return objects.reduce((a, b) =>  a)
+  } else if (objects[FIRST_ARGUMENT] instanceof WeakMap) {
+    return objects.reduce((a, b) => a)
   } else if (typeof objects[FIRST_ARGUMENT] === 'object') {
     return objects.reduce((a, b) => Object.assign(a, createClone(b)))
   }
 }
+
+/*
+var val1 = {a: 1}
+var val2 = {b: 2}
+var wks = new WeakSet([val1, val2])
+*/

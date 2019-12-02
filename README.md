@@ -4,6 +4,8 @@ This function creates a deep clone of the provided object, which and be an array
 
 It is possible to provide more than one object. In that case it will create a new object containing the combined deep clone of those objects. In this case order matters. Properties on earlier objects will be replaced by properties of later objects with the same properties.
 
+Cloning works for arrays, objects, sets and maps. In the case of a weaksets and weakmaps, because of their nature as weak data structures, they are just copied as a reference to the original. 
+
 
 ## Install
 
