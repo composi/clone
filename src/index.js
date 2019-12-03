@@ -67,8 +67,10 @@ export function clone(...objects) {
   if (Array.isArray(objects[FIRST_ARGUMENT])) {
     return objects.reduce((a, b) => Array.prototype.concat(a, createClone(b)))
   } else if (objects[FIRST_ARGUMENT] instanceof Set) {
+    // @ts-ignore
     return objects.reduce((a, b) => new Set([...a, ...createClone(b)]))
   } else if (objects[FIRST_ARGUMENT] instanceof Map) {
+    // @ts-ignore
     return objects.reduce((a, b) => new Map([...a, ...createClone(b)]))
   } else if (objects[FIRST_ARGUMENT] instanceof WeakSet) {
     return objects.reduce((a, b) =>  a)

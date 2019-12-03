@@ -1,7 +1,7 @@
 {
   "name": "@composi/clone",
   "description": "Create a deep clone of an Object, Array, Set or Map. WeakSet",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/index.js",
   "scripts": {
     "checkjs": "tsc --allowJs --checkJs --noEmit --moduleResolution node --target ES6 src/*.js",
