@@ -1,7 +1,7 @@
 /**
  * Create deep clone of Object, Array, Set or Map.
  *
- * @param {Object.<string, any>[]} objects One or more objects to use for cloning.
+ * @param {Object.<string, any>[]} objects If one object is provide, it will be cloned. If more than one object are provided, they will be merged and returned as a new object. This returns a deep clone of the original.
  * @return {Object} Object
  */
 
@@ -73,9 +73,9 @@ export function clone(...objects) {
     // @ts-ignore
     return objects.reduce((a, b) => new Map([...a, ...createClone(b)]))
   } else if (objects[FIRST_ARGUMENT] instanceof WeakSet) {
-    return objects.reduce((a, b) =>  a)
+    return objects.reduce(a => a)
   } else if (objects[FIRST_ARGUMENT] instanceof WeakMap) {
-    return objects.reduce((a, b) => a)
+    return objects.reduce(a => a)
   } else if (typeof objects[FIRST_ARGUMENT] === 'object') {
     return objects.reduce((a, b) => Object.assign(a, createClone(b)))
   }
