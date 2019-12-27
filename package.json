@@ -1,13 +1,13 @@
 {
   "name": "@composi/clone",
   "description": "Create a deep clone of an Object, Array, Set or Map. WeakSet",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "src/index.js",
   "scripts": {
     "checkjs": "tsc",
     "format": "prettier --no-semi --single-quote --write ./src/*.js",
     "lint": "eslint --config ./.eslintrc.json src",
-    "start": "npm run format && npm run lint && npm run checkjs && npm run test",
+    "start": "npm run lint && npm run checkjs && npm run test",
     "test": "jest --coverage"
   },
   "repository": {

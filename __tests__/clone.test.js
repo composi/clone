@@ -206,3 +206,15 @@ test('If only a signle array is provided, it should be cloned', function() {
   expect(arr1[0].name).toEqual('Shelley')
   expect(arr2[0].name).toEqual('Sharon')
 })
+
+test('If only a string is provide, return it', function () {
+  const str1 = 'a string'
+  const str2 = clone(str1)
+  expect(str2).toEqual('a string')
+})
+
+test('If only a number is provide, return it', function () {
+  const str1 = 123
+  const str2 = clone(str1)
+  expect(str2).toEqual(123)
+})
